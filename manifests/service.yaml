@@ -1,12 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: dotnet-course
-  namespace: demo-aks-course
+  name: dotnet-cource-vdb
+  namespace: demo-aks-cource
+  labels:
+    kubernetes.azure.com/generator: devhub
 spec:
   type: LoadBalancer
   selector:
-    app: dotnet-course
+    app: dotnet-cource-vdb
   ports:
     - protocol: TCP
       port: 5000
