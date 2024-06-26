@@ -1,22 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dotnet-course
+  name: dotnet-cource-vdb
   labels:
-    app: dotnet-course
-  namespace: demo-aks-course
+    app: dotnet-cource-vdb
+    kubernetes.azure.com/generator: devhub
+  namespace: demo-aks-cource
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dotnet-course
+      app: dotnet-cource-vdb
   template:
     metadata:
       labels:
-        app: dotnet-course
+        app: dotnet-cource-vdb
     spec:
       containers:
-        - name: dotnet-course
-          image: cdacn.azurecr.io/demo-1709362170553:latest
+        - name: dotnet-cource-vdb
+          image: vdbregistry.azurecr.io/demo-vdb-1719380332263:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
